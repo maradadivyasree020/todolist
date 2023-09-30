@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,31 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+input[type="text"]{
+  width:75%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+/* button{
+  padding: 3px;
+  border: 1px solid black;
+  color:black;
+  background-color: white;
+} */
+
+.create{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
