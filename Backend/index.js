@@ -21,33 +21,22 @@ const todoSchema = new mongoose.Schema({
 
 const TodoModel=mongoose.model('todo',todoSchema)
 
-app.get("/add",(req,res)=>{
+app.get("/get",async(req,res)=>{
     console.log("Hello");
-    res.send("Heloo")
+    const get=await TodoModel.find()
+    console.log(get);
+    res.send(get)
 })
 
-//run
 app.post('/add',async(req,res,next)=>{
     console.log("Hello")
     const text=req.body
-    // let dqq=await connectToMongo()
     console.log(text) 
     let data=new TodoModel(text)
     const result=await data.save()
     res.send(result)
 
 })
-
-// app.post('/add',(req,res)=>{
-//     const task=req.body.task;
-//     TodoModel.create({
-//         task:task
-//     })
-//     let data=new TodoModel({task:task})
-//     res.send("send")
-//     .then(result => res.json(result))
-//     .catch(err=>res.json(err))
-// })
 
 app.listen(5000,()=>{
     console.log("Connected")
