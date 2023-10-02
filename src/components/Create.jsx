@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import '../App.css';
-// import axios from 'axios'
+import axios from "axios";
 
 function Create(){
     const[todo,setTodo]=useState({task:""})
@@ -8,15 +8,24 @@ function Create(){
     const handleAdd = async (e) => {
         e.preventDefault();
         const {task} = todo;
-        const response = await fetch("http://localhost:5000/add", { 
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({task})
-        });
-        const json = await response.json()
-        console.log(json);
+
+        axios.post('http://localhost:5000/add',{task:task})
+        .then(result =>{
+            // eslint-disable-next-line no-restricted-globals
+            location.reload()
+        })
+        .catch(err => console.log(err))
+
+        // eslint-disable-next-line
+        // const response = await fetch("http://localhost:5000/add", { 
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({task}),
+        // });
+        // const json = await response.json()
+        // console.log(json);
     }
 
     const onChange = (e)=>{

@@ -25,7 +25,7 @@ input[type="submit"]{
   justify-content: space-evenly;
 }
 
-.task{
+.tas{
   display: flex;
   align-items: center;
   width:345px;
@@ -46,10 +46,15 @@ input[type="submit"]{
   font-size: 15px;
 }
 
-.task div span{
+.tas div span{
   margin: 0px 5px 0px 4px;
 }
 
-.task div .icon{
+.tas div span .icon{
   cursor: pointer;
+  font-size: 15px;
+}
+
+.line{
+  text-decoration: line-through;
 }
