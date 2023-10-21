@@ -28,14 +28,25 @@ function Create(){
         // console.log(json);
     }
 
+    // const onCheck=(e)=>{
+    //     if (e.target.value=" ")
+    //     alert("enter a todo")
+    //     else
+    //     onChange();
+    // }
+    
     const onChange = (e)=>{
+        // if(e.target.value="")
+        // alert("enter a todo")
+        console.log(e.target.value)
         setTodo({...todo, [e.target.name]: e.target.value})
     }
+
     
     return(
         <form className="create" method="POST">
           <input type="text" placeholder="Enter Task" name="task" value={todo.task} onChange={onChange}/>
-          <input type="submit" value="submit" onClick={handleAdd}/>
+          <input type="submit" value="ADD" onClick={handleAdd}/>
         </form>
     )
 }

@@ -3,11 +3,11 @@ import Create from './Create';
 // import App from './App';
 import axios from 'axios'
 // import {MdOutlineRadioButtonUnchecked} from "react-icons/md";
-// import {BsFillCircleFill} from "react-icons/bs"
+// import {FiEdit} from "react-icons/fi"
 import {FaTrash} from "react-icons/fa6"
 import {MdOutlineUpdate} from "react-icons/md"
 import {AiOutlineCheckCircle} from "react-icons/ai"
-import {GrUpdate} from "react-icons/gr"
+// import {GrUpdate} from "react-icons/gr"
 
 function Home(){
     const[todo,setTodo]=useState([])
@@ -40,25 +40,28 @@ function Home(){
         .catch(err=> console.log(err))
     }
 
-    const handleUpdate = (pd,id) =>{
-        // console.log(id)
-        axios.put('http://localhost:5000/update/'+id+pd)
+    // const handleUpdate = (pd,id) =>{
+        // console.log(id,pd)
+        // axios.put('http://localhost:5000/update/'+id)
         // .then(result =>{
         //     // eslint-disable-next-line no-restricted-globals
         //     location.reload()
         // })
         // .catch(err=> console.log(err))
-    }
+    // }
 
-    const handle =(uid)=>{
-        const upd=prompt("Enter updated todo")
-        handleUpdate(upd,uid)
-    }
+    // const handle =(uid)=>{
+    //     console.log(uid);
+    //     <App />
+    //     // const upd=prompt("Enter updated todo")
+    //     // handleUpdate(uid)
+    // }
 
     return(
         <div className="home">
-        <h2>Todo List</h2>
+        <h2>Add your Todo</h2>
         <Create />
+        <div className="abc">
         {
             todo.length===0 ? <h2>No Record</h2> :
             todo.map(to =>(
@@ -71,12 +74,14 @@ function Home(){
                         <p className={to.done ? "line" :""}>{to.task}</p><br/>
                     </div>
                     <div>
-                        <span><GrUpdate className="icon" onClick={() => handle(to._id)}/></span>
+                        {/* <span><FiEdit className="icon" onClick={() => handle(to._id)}/></span> */}
+                        {/* <span><GrUpdate className="icon" onClick={() => handle(to._id)}/></span> */}
                         <span><FaTrash className="icon" onClick={() => handleDelete(to._id)}/></span>
                     </div>
                 </div>
             ))
         }
+        </div>
         </div>
     )
 }

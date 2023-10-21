@@ -1,12 +1,15 @@
 const express=require('express')
 const mongoose=require('mongoose')
 const cors =require('cors')
+const bodyParser=require('body-parser')
 // const TodoModel=require('./Todo')
 // const connectToMongo=require('./Todo')
 
 const app=express()
 app.use(cors())
+app.use(bodyParser.json({extended:true}));
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 // app.use('/api/add',require('./add'));
 // connectToMongo()
 // app.use('/api/add')
@@ -54,9 +57,9 @@ app.delete('/delete/:id',(req,res)=>{
     .catch(err => res.json(err))
 })
 
-app.put('/update/:id/:pd',(req,res)=>{
+app.put('/update/:id',(req,res)=>{
     const {id}=req.params;
-    // const {pd}=req.params.pd;
+    // const {pd}=req.body.param2;
     console.log(id)
     // console.log(pd) 
     // res.send(id)
