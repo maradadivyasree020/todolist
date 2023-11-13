@@ -63,7 +63,7 @@ function Home(){
         <Create />
         <div className="abc">
         {
-            todo.length===0 ? <h2>No Record</h2> :
+            todo.length===0 ? <h2>No Todo...</h2> :
             todo.map(to =>(
                 <div className="tas">
                     <div className="checkbox" onClick={() =>handleEdit(to._id)}>
